@@ -14,7 +14,7 @@ App::~App()
 
 int App::Start()
 {
-	MSG msg;
+	/*MSG msg;
 	BOOL gResult;
 
 	while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0) {
@@ -28,21 +28,32 @@ int App::Start()
 		return -1;
 	}
 
-	return msg.wParam;
+	return msg.wParam;*/
+
+	while (true)
+	{
+		// process all messages pending, but to not block for new messages
+		if (const auto exitCode = Window::ProcessMessages())
+		{
+			// if return optional has value, means we're quitting so return exit code
+			return *exitCode;
+		}
+		// execute the game logic
+		const auto dt = timer.Mark()  /*speed_factor*/;
+		HandleInput(dt);
+		DoFrame(dt);
+	}
+}
+
+void App::HandleInput(float dt)
+{
 }
 
 void App::DoFrame(float dt)
 {
-	while (!window.mouse.IsEmpty()) {
-		const auto e = *window.mouse.Read();
-		if (e.GetType() == Mouse::Event::Type::Move) {
-			std::ostringstream buffer;
-			buffer << "Mouse position: (" << e.GetPosX() << "," << e.GetPosY() << ")";
-			window.SetTitle(buffer.str());
-		}
-	}
-
-	if (window.keyboard.IsKeyPressed(VK_SPACE)) {
-		MessageBox(nullptr, "Hello!", "Space key was pressed", MB_OK | MB_ICONEXCLAMATION);
-	}
+	static float elapsedTime = 0.0f; // Accumulated time
+	elapsedTime += dt;              // Add the delta time
+	std::ostringstream oss;
+	oss << "Time elapsed: " << std::setprecision(1) << std::fixed << elapsedTime << "s";
+	window.SetTitle(oss.str());
 }

@@ -27,8 +27,10 @@
     <ClInclude Include="include\Resource\resource.h" />
     <ClInclude Include="include\Input\Keyboard.h" />
     <ClInclude Include="include\Input\Mouse.h" />
+    <ClInclude Include="include\Time\OTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Time\OTimer.cpp" />
     <ClCompile Include="source\Core\App.cpp" />
     <ClCompile Include="source\Input\Mouse.cpp" />
     <ClCompile Include="source\Input\Keyboard.cpp" />
