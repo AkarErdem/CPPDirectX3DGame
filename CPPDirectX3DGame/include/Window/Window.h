@@ -3,7 +3,7 @@
 #include "Exception/OException.h"
 #include "Input/Keyboard.h"
 #include "Input/Mouse.h"
-//#include "Graphics.h"
+#include "Render/Graphics.h"
 #include <optional>
 #include <memory>
 #include <iostream>
@@ -73,7 +73,7 @@ public:
     bool CursorEnabled() const noexcept;
 
     static std::optional<int> ProcessMessages() noexcept;
-    //Graphics& Gfx();
+    Graphics& Gfx();
 private:
     void ConfineCursor() noexcept;
 
@@ -99,7 +99,7 @@ private:
     int width;
     int height;
     HWND hWnd;
-    /*std::unique_ptr<Graphics> pGfx;*/
+    std::unique_ptr<Graphics> pGfx;
     std::vector<BYTE> rawBuffer;
     std::string commandLine;
 };

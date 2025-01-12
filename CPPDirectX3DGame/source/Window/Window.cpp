@@ -72,11 +72,11 @@ Window::Window(int width, int height, const char *name)
 	// newly created windows start off as hidden
 	ShowWindow(hWnd, SW_SHOWDEFAULT);
 
-	//// Init ImGui Win32 Impl
+	// Init ImGui Win32 Impl
 	//ImGui_ImplWin32_Init(hWnd);
-	//// create graphics object
-	//pGfx = std::make_unique<Graphics>(hWnd, width, height);
-	//// register mouse raw input device
+	// create graphics object
+	pGfx = std::make_unique<Graphics>(hWnd, width, height);
+	// register mouse raw input device
 	RAWINPUTDEVICE rid;
 	rid.usUsagePage = 0x01; // mouse page
 	rid.usUsage = 0x02; // mouse usage
@@ -138,14 +138,14 @@ std::optional<int> Window::ProcessMessages() noexcept
 	return {};
 }
 
-//Graphics& Window::Gfx()
-//{
-//	if (!pGfx)
-//	{
-//		throw CHWND_NOGFX_EXCEPT();
-//	}
-//	return *pGfx;
-//}
+Graphics& Window::Gfx()
+{
+	if (!pGfx)
+	{
+		//throw CHWND_NOGFX_EXCEPT();
+	}
+	return *pGfx;
+}
 
 void Window::ConfineCursor() noexcept {
 	RECT rect;

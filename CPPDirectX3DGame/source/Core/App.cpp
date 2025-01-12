@@ -53,7 +53,18 @@ void App::DoFrame(float dt)
 {
 	static float elapsedTime = 0.0f; // Accumulated time
 	elapsedTime += dt;              // Add the delta time
+
+	// Update title
 	std::ostringstream oss;
 	oss << "Time elapsed: " << std::setprecision(1) << std::fixed << elapsedTime << "s";
 	window.SetTitle(oss.str());
+
+	// Add sine wave to give some animated color
+	const float c = sin(elapsedTime) / 2.0f + .5f;
+
+	Graphics& gfx = window.Gfx();
+	gfx.ClearBuffer(c, c, 1.0f); // White to blue
+
+	// End graphics frame;
+	gfx.EndFrame();
 }

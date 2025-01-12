@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Render\Graphics.h" />
     <ClInclude Include="include\Core\App.h" />
     <ClInclude Include="include\Exception\OException.h" />
     <ClInclude Include="include\Win32\OWin.h" />
@@ -30,6 +31,7 @@
     <ClInclude Include="include\Time\OTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Render\Graphics.cpp" />
     <ClCompile Include="source\Time\OTimer.cpp" />
     <ClCompile Include="source\Core\App.cpp" />
     <ClCompile Include="source\Input\Mouse.cpp" />
