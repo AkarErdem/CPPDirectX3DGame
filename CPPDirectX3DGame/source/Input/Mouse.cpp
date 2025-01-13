@@ -1,7 +1,6 @@
 #include "OWin/OWin.h"
 #include "Input/Mouse.h"
 
-
 std::pair<int, int> Mouse::GetPos() const noexcept
 {
 	return { x,y };

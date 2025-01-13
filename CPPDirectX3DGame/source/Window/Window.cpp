@@ -431,7 +431,6 @@ LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 	return DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
-
 // Window Exception
 std::string Window::Exception::TranslateErrorCode(HRESULT hr) noexcept {
 	char *pMsgBuf = nullptr;
@@ -481,7 +480,6 @@ HRESULT Window::HrException::GetErrorCode() const noexcept {
 std::string Window::HrException::GetErrorDescription() const noexcept {
 	return Exception::TranslateErrorCode(hr);
 }
-
 
 const char *Window::NoGfxException::GetType() const noexcept {
 	return "O Window Exception [No Graphics]";

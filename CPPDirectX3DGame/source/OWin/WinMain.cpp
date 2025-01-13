@@ -1,4 +1,3 @@
-
 #include "Core/App.h"
 
 int CALLBACK WinMain(
