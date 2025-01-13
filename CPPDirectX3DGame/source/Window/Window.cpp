@@ -1,4 +1,4 @@
-#include "Win32/OWin.h"
+#include "OWin/OWin.h"
 #include "Window/Window.h"
 #include "Window/WindowThrowMacros.h"
 #include "Exception/OException.h"
@@ -392,7 +392,7 @@ LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 			{
 				break;
 			}
-			UINT size;
+			UINT size = NULL;
 			// first get the size of the input data
 			if (GetRawInputData(
 				reinterpret_cast<HRAWINPUT>(lParam),

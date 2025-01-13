@@ -1,5 +1,5 @@
 #pragma once
-#include "Win32/OWin.h"
+#include "OWin/OWin.h"
 #include "Exception/OException.h"
 #include "Input/Keyboard.h"
 #include "Input/Mouse.h"

@@ -1,5 +1,5 @@
 #include "Render/Graphics.h"
-#include "Win32/OWin.h"
+#include "OWin/OWin.h"
 
 #pragma comment(lib, "d3d11.lib")
 

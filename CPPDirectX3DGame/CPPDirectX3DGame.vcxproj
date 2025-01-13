@@ -22,13 +22,14 @@
     <ClInclude Include="include\Render\Graphics.h" />
     <ClInclude Include="include\Core\App.h" />
     <ClInclude Include="include\Exception\OException.h" />
-    <ClInclude Include="include\Win32\OWin.h" />
     <ClInclude Include="include\Window\Window.h" />
     <ClInclude Include="include\Window\WindowThrowMacros.h" />
     <ClInclude Include="include\Resource\resource.h" />
     <ClInclude Include="include\Input\Keyboard.h" />
     <ClInclude Include="include\Input\Mouse.h" />
     <ClInclude Include="include\Time\OTimer.h" />
+    <ClInclude Include="include\OWin\OWin.h" />
+    <ClInclude Include="source\OWin\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Render\Graphics.cpp" />
@@ -38,7 +39,7 @@
     <ClCompile Include="source\Input\Keyboard.cpp" />
     <ClCompile Include="source\Exception\OException.cpp" />
     <ClCompile Include="source\Window\Window.cpp" />
-    <ClCompile Include="source\Win32\WinMain.cpp" />
+    <ClCompile Include="source\OWin\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CPPDirectX3DGame.rc" />

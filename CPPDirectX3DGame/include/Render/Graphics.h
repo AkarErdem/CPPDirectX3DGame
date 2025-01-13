@@ -1,5 +1,5 @@
 #pragma once
-#include "Win32/OWin.h"
+#include "OWin/OWin.h"
 #include <d3d11.h>
 
 class Graphics

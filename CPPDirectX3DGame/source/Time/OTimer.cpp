@@ -1,4 +1,5 @@
 #include "Time/OTimer.h"
+
 using namespace std::chrono;
 
 OTimer::OTimer() noexcept

@@ -21,7 +21,7 @@
     <ClCompile Include="source\Window\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Win32\WinMain.cpp">
+    <ClCompile Include="source\OWin\WinMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Input\Keyboard.cpp">
@@ -44,7 +44,7 @@
     <ClInclude Include="include\Exception\OException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Win32\OWin.h">
+    <ClInclude Include="include\OWin\OWin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Window\Window.h">
@@ -69,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Render\Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OWin\OWin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\OWin\WinMain.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
