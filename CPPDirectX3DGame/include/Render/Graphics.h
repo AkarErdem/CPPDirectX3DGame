@@ -80,11 +80,8 @@ public:
 	// UINT GetHeight() const noexcept;
 	// std::shared_ptr<Bind::RenderTarget> GetTarget();
 
-	void ClearBuffer(float r, float g, float b) noexcept
-	{
-		const float color[]{ r, g, b, 1.0f };
-		pContext->ClearRenderTargetView(pTarget.Get(), color);
-	};
+	void ClearBuffer(float r, float g, float b) noexcept;
+	void DrawTestTriangle();
 private:
 	UINT width;
 	UINT height;

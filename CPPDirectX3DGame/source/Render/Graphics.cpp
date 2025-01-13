@@ -93,6 +93,21 @@ void Graphics::EndFrame()
 	}
 }
 
+void Graphics::ClearBuffer(float r, float g, float b) noexcept
+{
+	const float color[]{ r, g, b, 1.0f };
+	pContext->ClearRenderTargetView(pTarget.Get(), color);
+}
+
+void Graphics::DrawTestTriangle()
+{
+	wrl::ComPtr<ID3D11Buffer> pVertexBuffer;
+	D3D11_BUFFER_DESC bd = {};
+	// pDevice->CreateBuffer();
+	// pContext->IASetVertexBuffers();
+	// pContext->Draw(3u, 0u);
+}
+
 // Graphics exception
 Graphics::HrException::HrException(int line, const char* file, HRESULT hr, std::vector<std::string> infoMsgs) noexcept
 	:
