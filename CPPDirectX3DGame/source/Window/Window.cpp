@@ -142,7 +142,7 @@ Graphics& Window::Gfx()
 {
 	if (!pGfx)
 	{
-		//throw CHWND_NOGFX_EXCEPT();
+		throw O_NOGFX_EXCEPT();
 	}
 	return *pGfx;
 }

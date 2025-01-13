@@ -1,12 +1,26 @@
 #pragma once
 #include "OWin/OWin.h"
 #include "Exception/OException.h"
+#include "DX/DxgiInfoManager.h"
+#include "OWin/OWrl.h"
+//#include "ConditionalNoexcept.h"
 #include <d3d11.h>
 #include <string>
 #include <vector>
+#include <d3dcompiler.h>
+#include <DirectXMath.h>
+#include <memory>
+#include <random>
+
+namespace Bind
+{
+	class Bindable;
+	class RenderTarget;
+}
 
 class Graphics
 {
+	//friend class GraphicsResource;
 public:
 	class Exception : public OException
 	{
@@ -46,22 +60,43 @@ public:
 	};
 public:
 	Graphics(HWND hWnd, int width, int height);
-	~Graphics();
+	~Graphics() = default;
 
 	// No need to have a copy constructor
 	Graphics(const Graphics&) = delete;
 	Graphics& operator =(const Graphics&) = delete;
-
+	
 	void EndFrame();
+	// void BeginFrame(float red, float green, float blue) noexcept;
+	// void DrawIndexed(UINT count) noxnd;
+	// void SetProjection(DirectX::FXMMATRIX proj) noexcept;
+	// DirectX::XMMATRIX GetProjection() const noexcept;
+	// void SetCamera(DirectX::FXMMATRIX cam) noexcept;
+	// DirectX::XMMATRIX GetCamera() const noexcept;
+	// void EnableImgui() noexcept;
+	// void DisableImgui() noexcept;
+	// bool IsImguiEnabled() const noexcept;
+	// UINT GetWidth() const noexcept;
+	// UINT GetHeight() const noexcept;
+	// std::shared_ptr<Bind::RenderTarget> GetTarget();
+
 	void ClearBuffer(float r, float g, float b) noexcept
 	{
 		const float color[]{ r, g, b, 1.0f };
-		pContext->ClearRenderTargetView(pTarget, color);
+		pContext->ClearRenderTargetView(pTarget.Get(), color);
 	};
-
 private:
-	ID3D11Device* pDevice = nullptr;
-	IDXGISwapChain* pSwap = nullptr;
-	ID3D11DeviceContext* pContext = nullptr;
-	ID3D11RenderTargetView* pTarget = nullptr;
+	UINT width;
+	UINT height;
+	DirectX::XMMATRIX projection;
+	DirectX::XMMATRIX camera;
+	bool imguiEnabled = true;
+#ifndef NDEBUG
+	DxgiInfoManager infoManager;
+#endif
+	Microsoft::WRL::ComPtr<ID3D11Device> pDevice;
+	Microsoft::WRL::ComPtr<IDXGISwapChain> pSwap;
+	Microsoft::WRL::ComPtr<ID3D11DeviceContext> pContext;
+	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> pTarget;
+	//std::shared_ptr<Bind::RenderTarget> pTarget;
 };
